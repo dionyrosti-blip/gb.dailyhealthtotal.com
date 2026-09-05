@@ -1036,4 +1036,38 @@
 
 
 
+
+    <!-- NEWSBREAK PARAMETER PASS-THROUGH TO VSL START -->
+    <script>
+    (function () {
+        function decorateVslLinks() {
+            var incomingParams = new URLSearchParams(window.location.search);
+
+            document.querySelectorAll('a[href]').forEach(function (link) {
+                try {
+                    var url = new URL(link.getAttribute('href'), window.location.href);
+
+                    if (
+                        url.hostname === 'gb.dailyhealthtotal.com' &&
+                        (url.pathname === '/gb' || url.pathname === '/gb/')
+                    ) {
+                        incomingParams.forEach(function (value, key) {
+                            url.searchParams.set(key, value);
+                        });
+
+                        link.href = url.toString();
+                    }
+                } catch (e) {}
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', decorateVslLinks);
+        } else {
+            decorateVslLinks();
+        }
+    })();
+    </script>
+    <!-- NEWSBREAK PARAMETER PASS-THROUGH TO VSL END -->
+
 </body></html>
