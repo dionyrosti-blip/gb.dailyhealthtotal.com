@@ -1924,11 +1924,25 @@ var HappyLocalize = {"ajax_url":"","nonce":"","pdf_js_lib":""};
 <style>.esconder{display:none}</style>
 <script id="vturb-delay-5304">
 document.addEventListener('DOMContentLoaded', function () {
-  var delaySeconds = 3184;
+  var delaySeconds = 3184; // 53:04
   var player = document.getElementById('vid-6a9c5741a4f792fe4286bc13');
   if (!player) return;
+
   player.addEventListener('player:ready', function () {
-    player.displayHiddenElements(delaySeconds, ['#gb-delayed-offer'], { persist: true });
-  });
+    player.displayHiddenElements(delaySeconds, ['#gb-delayed-offer'], {
+      persist: true,
+      callback: function () {
+        var offer = document.getElementById('gb-delayed-offer');
+        if (!offer) return;
+
+        requestAnimationFrame(function () {
+          offer.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      }
+    });
+  }, { once: true });
 });
 </script></body></html>
