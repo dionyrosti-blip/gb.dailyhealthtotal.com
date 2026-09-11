@@ -775,61 +775,44 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="elementor-element elementor-element-c58a399 elementor-widget elementor-widget-html" data-e-type="widget" data-element_type="widget" data-id="c58a399" data-widget_type="html.default"><div class="esconder" id="gb-delayed-offer">
 <style>
 #gb-dtc-offer,#gb-dtc-offer *{box-sizing:border-box}
-#gb-dtc-offer{width:100vw;margin-left:calc(50% - 50vw);background:#fff;color:#112d28;font-family:Arial,Helvetica,sans-serif;padding:28px 12px 0}
+#gb-dtc-offer{width:100vw;margin-left:calc(50% - 50vw);background:#f6f8f7;color:#102a25;font-family:Arial,Helvetica,sans-serif;padding:32px 14px 0}
 #gb-dtc-offer a{text-decoration:none}
-#gb-dtc-offer .gb-divider{width:95px;height:4px;border-radius:999px;background:#d4b04a;margin:0 auto 22px}
-#gb-dtc-offer .gb-offer-shell{max-width:1140px;margin:0 auto 28px;background:#eef0fb;border-radius:36px;padding:34px 32px 30px;box-shadow:0 10px 34px rgba(17,45,40,.07)}
-#gb-dtc-offer .gb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
-#gb-dtc-offer .gb-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1.5px solid #4d6a63;border-radius:22px;overflow:hidden;color:#102c28;box-shadow:0 8px 22px rgba(0,0,0,.05);transition:transform .2s ease, box-shadow .2s ease}
-#gb-dtc-offer .gb-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.1)}
-#gb-dtc-offer .gb-card.best{border-color:#e2b12d;transform:translateY(-10px)}
-#gb-dtc-offer .gb-top{padding:14px 16px 13px;text-align:center;color:#fff;background:#063f36;font-size:19px;font-weight:800;line-height:1;text-transform:uppercase}
-#gb-dtc-offer .gb-card.best .gb-top{background:linear-gradient(180deg,#efc22c 0%,#d9a812 100%);color:#0f2b27}
-#gb-dtc-offer .gb-card-wrap{padding:18px 18px 16px;display:flex;flex-direction:column;flex:1}
-#gb-dtc-offer .gb-title{font-size:31px;line-height:1.02;font-weight:900;text-align:center;text-transform:uppercase;letter-spacing:.2px}
-#gb-dtc-offer .gb-supply{display:block;text-align:center;font-size:15px;line-height:1.2;font-weight:500;text-transform:uppercase;margin-top:6px;color:#213f3a}
-#gb-dtc-offer .gb-product{position:relative;height:180px;display:flex;align-items:flex-end;justify-content:center;margin:12px 0 8px;overflow:visible}
-#gb-dtc-offer .gb-bottles{position:relative;width:245px;height:165px}
-#gb-dtc-offer .gb-bottles img{position:absolute;bottom:0;left:50%;height:140px;width:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 10px 10px rgba(0,0,0,.16))}
-#gb-dtc-offer .gb-bottles.two img:nth-child(1){transform:translateX(-84%) scale(.92);z-index:1}
-#gb-dtc-offer .gb-bottles.two img:nth-child(2){transform:translateX(-23%) scale(.92);z-index:2}
-#gb-dtc-offer .gb-bottles.three img:nth-child(1){transform:translateX(-86%) scale(.83);z-index:1}
+#gb-dtc-offer .gb-divider{width:92px;height:4px;border-radius:999px;background:#d5ad42;margin:0 auto 24px}
+#gb-dtc-offer .gb-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+#gb-dtc-offer .gb-card{display:flex;flex-direction:column;position:relative;overflow:hidden;border:1px solid #dfe7e4;border-radius:18px;background:#fff;color:#17332d;box-shadow:0 8px 28px rgba(7,62,52,.09);transition:.2s ease}
+#gb-dtc-offer .gb-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(7,62,52,.14)}
+#gb-dtc-offer .gb-card.best{border:2px solid #d5ad42;box-shadow:0 16px 42px rgba(7,62,52,.16)}
+#gb-dtc-offer .gb-card-head{background:#063f36;color:#fff;text-align:center;padding:15px 12px 12px;min-height:82px}
+#gb-dtc-offer .gb-best{display:inline-block;background:#e2bd57;color:#092e28;border-radius:999px;padding:4px 11px;font-size:11px;line-height:1;font-weight:900;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+#gb-dtc-offer .gb-name{display:block;font-size:23px;font-weight:900;line-height:1.05}
+#gb-dtc-offer .gb-supply{display:block;font-size:13px;font-weight:700;opacity:.88;margin-top:6px}
+#gb-dtc-offer .gb-product{height:215px;position:relative;display:flex;align-items:center;justify-content:center;padding:15px;background:radial-gradient(circle,#eff8f4 0,#fff 67%);overflow:hidden}
+#gb-dtc-offer .gb-bottles{position:relative;width:230px;height:185px}
+#gb-dtc-offer .gb-bottles img{position:absolute;bottom:0;left:50%;height:180px;width:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 8px 7px rgba(0,0,0,.17));transform:translateX(-50%)}
+#gb-dtc-offer .gb-bottles.two img:nth-child(1){transform:translateX(-78%) scale(.92)}
+#gb-dtc-offer .gb-bottles.two img:nth-child(2){transform:translateX(-22%) scale(.92)}
+#gb-dtc-offer .gb-bottles.three img:nth-child(1){transform:translateX(-87%) scale(.82);z-index:1}
 #gb-dtc-offer .gb-bottles.three img:nth-child(2){transform:translateX(-50%) scale(1);z-index:3}
-#gb-dtc-offer .gb-bottles.three img:nth-child(3){transform:translateX(-14%) scale(.83);z-index:1}
-#gb-dtc-offer .gb-bottles.six img:nth-child(1){transform:translateX(-112%) scale(.62);z-index:1}
-#gb-dtc-offer .gb-bottles.six img:nth-child(2){transform:translateX(-90%) scale(.72);z-index:2}
-#gb-dtc-offer .gb-bottles.six img:nth-child(3){transform:translateX(-67%) scale(.84);z-index:4}
-#gb-dtc-offer .gb-bottles.six img:nth-child(4){transform:translateX(-47%) scale(.96);z-index:5}
-#gb-dtc-offer .gb-bottles.six img:nth-child(5){transform:translateX(-27%) scale(.84);z-index:4}
-#gb-dtc-offer .gb-bottles.six img:nth-child(6){transform:translateX(-5%) scale(.72);z-index:2}
-#gb-dtc-offer .gb-save-badge{position:absolute;right:4px;bottom:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;width:74px;height:74px;border-radius:50%;background:#0c1018;color:#fff;box-shadow:0 8px 16px rgba(0,0,0,.18);line-height:1;text-align:center}
-#gb-dtc-offer .gb-save-badge small{font-size:10px;font-weight:700;opacity:.95}
-#gb-dtc-offer .gb-save-badge b{font-size:14px;font-weight:900;margin-top:4px}
-#gb-dtc-offer .gb-price{display:flex;align-items:flex-end;justify-content:center;gap:3px;line-height:1;margin:4px 0 14px;color:#6f696d}
-#gb-dtc-offer .gb-price strong{font-size:50px;font-weight:900;color:#092a61;line-height:.92;display:flex;align-items:flex-start}
-#gb-dtc-offer .gb-card.best .gb-price strong{font-size:66px}
-#gb-dtc-offer .gb-price strong small{font-size:18px;line-height:1;padding-top:7px;margin-right:2px;color:#092a61}
-#gb-dtc-offer .gb-price span{font-size:18px;color:#6d6971;margin-bottom:6px}
-#gb-dtc-offer .gb-features{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:8px;flex:1}
-#gb-dtc-offer .gb-features li{display:grid;grid-template-columns:16px 1fr;gap:8px;align-items:start;font-size:13px;line-height:1.25;color:#5f6669;font-weight:500}
-#gb-dtc-offer .gb-features li strong{font-weight:800}
-#gb-dtc-offer .gb-features .check::before{content:'✓';color:#24a20b;font-weight:900;font-size:18px;line-height:1}
-#gb-dtc-offer .gb-features .cross::before{content:'×';color:#222;font-weight:900;font-size:18px;line-height:1}
-#gb-dtc-offer .gb-total-row{display:flex;justify-content:center;align-items:center;gap:10px;margin:6px 0 12px;font-size:15px;line-height:1.1;color:#112d28}
-#gb-dtc-offer .gb-total-row s{color:#cb3a36;text-decoration-color:#cb3a36;font-size:16px}
-#gb-dtc-offer .gb-total-row strong{font-size:20px;color:#092a61}
-#gb-dtc-offer .gb-total-row small{font-size:12px;font-weight:800}
-#gb-dtc-offer .gb-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:255px;margin:0 auto;border-radius:999px;background:linear-gradient(180deg,#31ea06 0%,#26c703 100%);border:none;border-bottom:5px solid #1d9205;color:#fff;padding:15px 22px;font-size:19px;font-weight:900;text-transform:uppercase;box-shadow:0 10px 20px rgba(34,205,6,.18)}
-#gb-dtc-offer .gb-btn svg{width:22px;height:22px;fill:#fff;flex:none}
-#gb-dtc-offer .gb-payments{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin:12px auto 8px;max-width:260px}
-#gb-dtc-offer .gb-payments span{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:28px;padding:0 6px;border:1px solid #cfcbc8;border-radius:4px;background:#fff;color:#1f4a7d;font-size:11px;font-weight:800;box-shadow:0 2px 4px rgba(0,0,0,.03)}
-#gb-dtc-offer .gb-payments span.mc{color:#e0652a}
-#gb-dtc-offer .gb-payments span.amex{color:#4a93c4}
-#gb-dtc-offer .gb-payments span.pp{color:#1b75bc}
-#gb-dtc-offer .gb-payments span.disc{color:#df7a2c}
-#gb-dtc-offer .gb-total-bottom{text-align:center;font-size:15px;line-height:1.25;color:#8b8f96;margin-top:2px}
-#gb-dtc-offer .gb-total-bottom s{color:#d94a3d;text-decoration-color:#d94a3d}
-#gb-dtc-offer .gb-total-bottom strong{color:#112d67;font-size:20px}
+#gb-dtc-offer .gb-bottles.three img:nth-child(3){transform:translateX(-13%) scale(.82);z-index:1}
+#gb-dtc-offer .gb-bottles.six img:nth-child(1){transform:translateX(-105%) scale(.72);z-index:1}
+#gb-dtc-offer .gb-bottles.six img:nth-child(2){transform:translateX(-82%) scale(.82);z-index:2}
+#gb-dtc-offer .gb-bottles.six img:nth-child(3){transform:translateX(-59%) scale(.94);z-index:4}
+#gb-dtc-offer .gb-bottles.six img:nth-child(4){transform:translateX(-41%) scale(.94);z-index:4}
+#gb-dtc-offer .gb-bottles.six img:nth-child(5){transform:translateX(-18%) scale(.82);z-index:2}
+#gb-dtc-offer .gb-bottles.six img:nth-child(6){transform:translateX(5%) scale(.72);z-index:1}
+#gb-dtc-offer .gb-card-body{padding:10px 18px 18px;text-align:center;display:flex;flex-direction:column;flex:1}
+#gb-dtc-offer .gb-save{min-height:18px;color:#a76f00;font-size:12px;font-weight:900;text-transform:uppercase}
+#gb-dtc-offer .gb-price{font-size:39px;line-height:1;color:#063f36;font-weight:900;margin:7px 0 4px}
+#gb-dtc-offer .gb-price small{display:block;font-size:12px;letter-spacing:.3px;color:#71807b;margin-top:6px;text-transform:uppercase}
+#gb-dtc-offer .gb-features{list-style:none;padding:8px 0 5px;margin:7px 0 10px;text-align:left;font-size:13px;line-height:1.45;color:#46534f}
+#gb-dtc-offer .gb-features li{padding:5px 0 5px 21px;position:relative;border-bottom:1px solid #edf1ef}
+#gb-dtc-offer .gb-features li:last-child{border-bottom:0}
+#gb-dtc-offer .gb-features li:before{content:'✓';position:absolute;left:0;color:#087561;font-weight:900}
+#gb-dtc-offer .gb-total{margin-top:auto;font-size:14px;font-weight:800;color:#243a35}
+#gb-dtc-offer .gb-total s{color:#8d9894;font-weight:600;margin-right:5px}
+#gb-dtc-offer .gb-total strong{font-size:22px;color:#063f36}
+#gb-dtc-offer .gb-btn{display:block;margin-top:13px;border-radius:9px;background:linear-gradient(#f1c74f,#d6a72c);border:1px solid #b98a16;color:#14312b;font-size:16px;font-weight:900;padding:13px 9px;box-shadow:inset 0 1px #fff7}
+#gb-dtc-offer .gb-secure{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:#7a8783;margin-top:8px;font-weight:700}
 #gb-dtc-offer .gb-badges{max-width:780px;margin:25px auto 30px;padding:20px 16px;display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;background:#fff;border-radius:14px;border:1px solid #e3e9e7}
 #gb-dtc-offer .gb-badges img{width:72px;height:72px;object-fit:contain;display:block}
 #gb-dtc-offer .gb-repeat{padding-top:8px}
@@ -840,74 +823,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 #gb-dtc-offer .gb-disclaimer{max-width:980px;margin:26px auto 0;padding:20px 12px 26px;text-align:center;color:#747f7b;font-size:10px;line-height:1.6}
 #gb-dtc-offer .gb-disclaimer a{color:#315d53;text-decoration:underline}
 #gb-dtc-offer .gb-copy{font-size:11px;font-weight:700;margin-top:12px;color:#596762}
-@media(max-width:900px){
-  #gb-dtc-offer .gb-offer-shell{padding:24px 16px 18px;border-radius:28px}
-  #gb-dtc-offer .gb-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto;gap:18px}
-  #gb-dtc-offer .gb-card.best{transform:none}
-  #gb-dtc-offer .gb-badges{gap:12px;padding:16px 8px}
-  #gb-dtc-offer .gb-badges img{width:58px;height:58px}
-  #gb-dtc-offer .gb-guarantee{display:block;text-align:center;padding:28px 18px 32px}
-  #gb-dtc-offer .gb-guarantee img{width:145px;margin:0 auto 18px}
+@media(max-width:820px){
+ #gb-dtc-offer{padding:22px 10px 0}
+ #gb-dtc-offer .gb-grid{display:block;max-width:520px}
+ #gb-dtc-offer .gb-card{margin:0 0 16px}
+ #gb-dtc-offer .gb-card.best{order:0}
+ #gb-dtc-offer .gb-product{height:200px}
+ #gb-dtc-offer .gb-guarantee{display:block;text-align:center;padding:28px 18px 32px}
+ #gb-dtc-offer .gb-guarantee img{width:145px;margin:0 auto 18px}
+ #gb-dtc-offer .gb-badges{gap:12px;padding:16px 8px}
+ #gb-dtc-offer .gb-badges img{width:58px;height:58px}
 }
 </style>
 <section aria-label="Glyco Barrier offers" id="gb-dtc-offer">
 <div class="gb-divider"></div>
-<div class="gb-offer-shell">
 <div class="gb-grid">
 <a class="gb-card smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13328&product_codename=gly2bc&redirect=aHR0cHM6Ly9iZy5nbHljb2JhcnJpZXIuY29tL3Vwc2VsbDEtYy8%3D&aff_id=562">
-  <div class="gb-top">2 Bottles</div>
-  <div class="gb-card-wrap">
-    <div class="gb-title">2 Bottles</div>
-    <span class="gb-supply">60 Day Supply</span>
-    <div class="gb-product"><div class="gb-bottles two"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/></div></div>
-    <div class="gb-price"><strong><small>$</small>79</strong><span>/bottle</span></div>
-    <ul class="gb-features">
-      <li class="cross">No Free Shipping</li>
-      <li class="check">Monthly Consultation with <strong>Dr. W. Li</strong> — 2 Months</li>
-    </ul>
-    <div class="gb-total-row"><s>$358</s><strong>$158</strong><small>today</small></div>
-    <span class="gb-btn">BUY NOW <svg viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg></span>
-    <div class="gb-payments"><span>VISA</span><span class="mc">MC</span><span class="amex">AMEX</span><span class="pp">PayPal</span><span class="disc">DISC</span></div>
-    <div class="gb-total-bottom">TOTAL: <s>$358</s> <strong>$158</strong></div>
-  </div>
+<div class="gb-card-head"><span class="gb-name">Starter</span><span class="gb-supply">2 Bottles · 60 Day Supply</span></div>
+<div class="gb-product"><div class="gb-bottles two"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/></div></div>
+<div class="gb-card-body"><div class="gb-save"> </div><div class="gb-price">$79<small>per bottle</small></div><ul class="gb-features"><li>Fast Shipping</li><li>Free Shipping</li><li>Free Bonuses</li><li>Monthly Consultation with <strong>Dr. W. Li</strong> — 2 Months</li></ul><div class="gb-total">Total: <s>$358</s> <strong>$158</strong></div><span class="gb-btn">ORDER NOW</span><span class="gb-secure">Secure checkout</span></div>
 </a>
 <a class="gb-card best smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13328&product_codename=gly6bc&redirect=aHR0cHM6Ly9iZy5nbHljb2JhcnJpZXIuY29tL3Vwc2VsbDEtYy8%3D&aff_id=562">
-  <div class="gb-top">⭐ Best Seller</div>
-  <div class="gb-card-wrap">
-    <div class="gb-title">6 Bottles</div>
-    <span class="gb-supply">180 Day Supply</span>
-    <div class="gb-product"><div class="gb-bottles six"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/></div><div class="gb-save-badge"><small>Save</small><b>$780</b></div></div>
-    <div class="gb-price"><strong><small>$</small>49</strong><span>/bottle</span></div>
-    <ul class="gb-features">
-      <li class="check">60-Day Guarantee</li>
-      <li class="check">Fast &amp; Free Shipping</li>
-      <li class="check">Monthly Consultation with <strong>Dr. W. Li</strong> — 6 Months</li>
-    </ul>
-    <div class="gb-total-row"><s>$1,074</s><strong>$294</strong><small>today</small></div>
-    <span class="gb-btn">BUY NOW <svg viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg></span>
-    <div class="gb-payments"><span>VISA</span><span class="mc">MC</span><span class="amex">AMEX</span><span class="pp">PayPal</span><span class="disc">DISC</span></div>
-    <div class="gb-total-bottom">TOTAL: <s>$1,074</s> <strong>$294</strong></div>
-  </div>
+<div class="gb-card-head"><span class="gb-best">Best Value</span><span class="gb-name">6 Bottles</span><span class="gb-supply">180 Day Supply</span></div>
+<div class="gb-product"><div class="gb-bottles six"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/></div></div>
+<div class="gb-card-body"><div class="gb-save">SAVE $780 TODAY</div><div class="gb-price">$49<small>per bottle</small></div><ul class="gb-features"><li>60-Day Guarantee</li><li>Fast &amp; Free Shipping</li><li>2 Free Bonuses!</li><li>Monthly Consultation with <strong>Dr. W. Li</strong> — 6 Months</li></ul><div class="gb-total">Total: <s>$1074</s> <strong>$294</strong></div><span class="gb-btn">ORDER NOW</span><span class="gb-secure">Secure checkout</span></div>
 </a>
 <a class="gb-card smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13328&product_codename=gly3bc&redirect=aHR0cHM6Ly9iZy5nbHljb2JhcnJpZXIuY29tL3Vwc2VsbDEtYy8%3D&aff_id=562">
-  <div class="gb-top">Standard</div>
-  <div class="gb-card-wrap">
-    <div class="gb-title">3 Bottles</div>
-    <span class="gb-supply">90 Day Supply</span>
-    <div class="gb-product"><div class="gb-bottles three"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/></div><div class="gb-save-badge"><small>Save</small><b>$330</b></div></div>
-    <div class="gb-price"><strong><small>$</small>69</strong><span>/bottle</span></div>
-    <ul class="gb-features">
-      <li class="check">60-Day Guarantee</li>
-      <li class="check">Free Shipping</li>
-      <li class="check">Monthly Consultation with <strong>Dr. W. Li</strong> — 3 Months</li>
-    </ul>
-    <div class="gb-total-row"><s>$537</s><strong>$207</strong><small>today</small></div>
-    <span class="gb-btn">BUY NOW <svg viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg></span>
-    <div class="gb-payments"><span>VISA</span><span class="mc">MC</span><span class="amex">AMEX</span><span class="pp">PayPal</span><span class="disc">DISC</span></div>
-    <div class="gb-total-bottom">TOTAL: <s>$537</s> <strong>$207</strong></div>
-  </div>
+<div class="gb-card-head"><span class="gb-name">Standard</span><span class="gb-supply">3 Bottles · 90 Day Supply</span></div>
+<div class="gb-product"><div class="gb-bottles three"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="" src="https://glycobarrier.com/assets/image/about-product.png"/></div></div>
+<div class="gb-card-body"><div class="gb-save">SAVE $330 TODAY</div><div class="gb-price">$69<small>per bottle</small></div><ul class="gb-features"><li>60-Day Guarantee</li><li>Fast &amp; Free Shipping</li><li>1 Free Bonus!</li><li>Monthly Consultation with <strong>Dr. W. Li</strong> — 3 Months</li></ul><div class="gb-total">Total: <s>$537</s> <strong>$207</strong></div><span class="gb-btn">ORDER NOW</span><span class="gb-secure">Secure checkout</span></div>
 </a>
-</div>
 </div>
 <div aria-label="Product quality badges" class="gb-badges">
 <img alt="Manufactured in USA" src="https://glycobarrier.com/dtc-b/assets/images/me1.png"/>
@@ -918,62 +863,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <img alt="Non GMO" src="https://glycobarrier.com/dtc-b/assets/images/medalha6.png"/>
 </div>
 <div class="gb-repeat">
-<div class="gb-offer-shell">
 <div class="gb-grid">
 <a class="gb-card smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13328&product_codename=gly2bc&redirect=aHR0cHM6Ly9iZy5nbHljb2JhcnJpZXIuY29tL3Vwc2VsbDEtYy8%3D&aff_id=562">
-  <div class="gb-top">2 Bottles</div>
-  <div class="gb-card-wrap">
-    <div class="gb-title">2 Bottles</div>
-    <span class="gb-supply">60 Day Supply</span>
-    <div class="gb-product"><div class="gb-bottles two"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/></div></div>
-    <div class="gb-price"><strong><small>$</small>79</strong><span>/bottle</span></div>
-    <ul class="gb-features">
-      <li class="cross">No Free Shipping</li>
-      <li class="check">Monthly Consultation with <strong>Dr. W. Li</strong> — 2 Months</li>
-    </ul>
-    <div class="gb-total-row"><s>$358</s><strong>$158</strong><small>today</small></div>
-    <span class="gb-btn">BUY NOW <svg viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg></span>
-    <div class="gb-payments"><span>VISA</span><span class="mc">MC</span><span class="amex">AMEX</span><span class="pp">PayPal</span><span class="disc">DISC</span></div>
-    <div class="gb-total-bottom">TOTAL: <s>$358</s> <strong>$158</strong></div>
-  </div>
+<div class="gb-card-head"><span class="gb-name">Starter</span><span class="gb-supply">2 Bottles · 60 Day Supply</span></div>
+<div class="gb-card-body"><div class="gb-save"> </div><div class="gb-price">$79<small>per bottle</small></div><ul class="gb-features"><li>Fast Shipping</li><li>Free Shipping</li><li>Free Bonuses</li><li>Monthly Consultation with <strong>Dr. W. Li</strong> — 2 Months</li></ul><div class="gb-total">Total: <s>$358</s> <strong>$158</strong></div><span class="gb-btn">ORDER NOW</span></div>
 </a>
 <a class="gb-card best smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13328&product_codename=gly6bc&redirect=aHR0cHM6Ly9iZy5nbHljb2JhcnJpZXIuY29tL3Vwc2VsbDEtYy8%3D&aff_id=562">
-  <div class="gb-top">⭐ Best Seller</div>
-  <div class="gb-card-wrap">
-    <div class="gb-title">6 Bottles</div>
-    <span class="gb-supply">180 Day Supply</span>
-    <div class="gb-product"><div class="gb-bottles six"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/></div><div class="gb-save-badge"><small>Save</small><b>$780</b></div></div>
-    <div class="gb-price"><strong><small>$</small>49</strong><span>/bottle</span></div>
-    <ul class="gb-features">
-      <li class="check">60-Day Guarantee</li>
-      <li class="check">Fast &amp; Free Shipping</li>
-      <li class="check">Monthly Consultation with <strong>Dr. W. Li</strong> — 6 Months</li>
-    </ul>
-    <div class="gb-total-row"><s>$1,074</s><strong>$294</strong><small>today</small></div>
-    <span class="gb-btn">BUY NOW <svg viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg></span>
-    <div class="gb-payments"><span>VISA</span><span class="mc">MC</span><span class="amex">AMEX</span><span class="pp">PayPal</span><span class="disc">DISC</span></div>
-    <div class="gb-total-bottom">TOTAL: <s>$1,074</s> <strong>$294</strong></div>
-  </div>
+<div class="gb-card-head"><span class="gb-best">Best Value</span><span class="gb-name">6 Bottles</span><span class="gb-supply">180 Day Supply</span></div>
+<div class="gb-card-body"><div class="gb-save">SAVE $780 TODAY</div><div class="gb-price">$49<small>per bottle</small></div><ul class="gb-features"><li>60-Day Guarantee</li><li>Fast &amp; Free Shipping</li><li>2 Free Bonuses!</li><li>Monthly Consultation with <strong>Dr. W. Li</strong> — 6 Months</li></ul><div class="gb-total">Total: <s>$1074</s> <strong>$294</strong></div><span class="gb-btn">ORDER NOW</span></div>
 </a>
 <a class="gb-card smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13328&product_codename=gly3bc&redirect=aHR0cHM6Ly9iZy5nbHljb2JhcnJpZXIuY29tL3Vwc2VsbDEtYy8%3D&aff_id=562">
-  <div class="gb-top">Standard</div>
-  <div class="gb-card-wrap">
-    <div class="gb-title">3 Bottles</div>
-    <span class="gb-supply">90 Day Supply</span>
-    <div class="gb-product"><div class="gb-bottles three"><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/><img alt="Glyco Barrier" src="https://glycobarrier.com/assets/image/about-product.png"/></div><div class="gb-save-badge"><small>Save</small><b>$330</b></div></div>
-    <div class="gb-price"><strong><small>$</small>69</strong><span>/bottle</span></div>
-    <ul class="gb-features">
-      <li class="check">60-Day Guarantee</li>
-      <li class="check">Free Shipping</li>
-      <li class="check">Monthly Consultation with <strong>Dr. W. Li</strong> — 3 Months</li>
-    </ul>
-    <div class="gb-total-row"><s>$537</s><strong>$207</strong><small>today</small></div>
-    <span class="gb-btn">BUY NOW <svg viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path></svg></span>
-    <div class="gb-payments"><span>VISA</span><span class="mc">MC</span><span class="amex">AMEX</span><span class="pp">PayPal</span><span class="disc">DISC</span></div>
-    <div class="gb-total-bottom">TOTAL: <s>$537</s> <strong>$207</strong></div>
-  </div>
+<div class="gb-card-head"><span class="gb-name">Standard</span><span class="gb-supply">3 Bottles · 90 Day Supply</span></div>
+<div class="gb-card-body"><div class="gb-save">SAVE $330 TODAY</div><div class="gb-price">$69<small>per bottle</small></div><ul class="gb-features"><li>60-Day Guarantee</li><li>Fast &amp; Free Shipping</li><li>1 Free Bonus!</li><li>Monthly Consultation with <strong>Dr. W. Li</strong> — 3 Months</li></ul><div class="gb-total">Total: <s>$537</s> <strong>$207</strong></div><span class="gb-btn">ORDER NOW</span></div>
 </a>
-</div>
 </div>
 </div>
 <div aria-label="Product quality badges" class="gb-badges">
