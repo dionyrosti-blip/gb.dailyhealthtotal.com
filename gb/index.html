@@ -2109,18 +2109,76 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <!-- BUYGOODS + NEWSBREAK CROSS-DOMAIN TRACKING END -->
 
-<!-- NEWSBREAK INITIATE CHECKOUT ON BUYGOODS CLICK START -->
-<script id="newsbreak-initiate-checkout-buygoods">
-document.addEventListener('click', function (event) {
-  var link = event.target.closest('a[href*="buygoods.com/secure/checkout.html"]');
-  if (!link) return;
+<!-- NEWSBREAK INITIATE CHECKOUT POSTBACK ON BUYGOODS CLICK START -->
+<script id="newsbreak-initiate-checkout-postback">
+(function () {
+  'use strict';
 
-  if (typeof window.nbpix === 'function') {
-    window.nbpix("init", "2096208726443921409");
-    window.nbpix("event", "initiate_checkout");
+  var STORAGE_KEY = 'newsbreak_click_id';
+  var FIRED_PREFIX = 'newsbreak_ic_fired_';
+
+  function getNewsBreakClickId() {
+    var params = new URLSearchParams(window.location.search);
+    var keys = ['nb_cid', 'newsbreak_cid', 'cid', 'callback'];
+    var cid = '';
+
+    for (var i = 0; i < keys.length; i++) {
+      cid = params.get(keys[i]) || '';
+      if (cid) break;
+    }
+
+    if (cid && cid !== '__CALLBACK_PARAM__') {
+      try { sessionStorage.setItem(STORAGE_KEY, cid); } catch (e) {}
+      try { localStorage.setItem(STORAGE_KEY, cid); } catch (e) {}
+      return cid;
+    }
+
+    try { cid = sessionStorage.getItem(STORAGE_KEY) || ''; } catch (e) {}
+    if (!cid) {
+      try { cid = localStorage.getItem(STORAGE_KEY) || ''; } catch (e) {}
+    }
+
+    return cid;
   }
-}, true);
+
+  function fireInitiateCheckoutPostback(cid) {
+    if (!cid || cid === '__CALLBACK_PARAM__') return;
+
+    var dedupeKey = FIRED_PREFIX + cid;
+    try {
+      if (sessionStorage.getItem(dedupeKey) === '1') return;
+      sessionStorage.setItem(dedupeKey, '1');
+    } catch (e) {}
+
+    var endpoint = 'https://business.newsbreak.com/tracking/attribute' +
+      '?callback=' + encodeURIComponent(cid) +
+      '&event_type=initiate_checkout';
+
+    try {
+      fetch(endpoint, {
+        method: 'GET',
+        mode: 'no-cors',
+        keepalive: true,
+        cache: 'no-store',
+        credentials: 'omit'
+      }).catch(function () {});
+    } catch (e) {
+      var img = new Image();
+      img.src = endpoint + '&_=' + Date.now();
+    }
+  }
+
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!target || typeof target.closest !== 'function') return;
+
+    var link = target.closest('a[href*="buygoods.com/secure/checkout.html"]');
+    if (!link) return;
+
+    fireInitiateCheckoutPostback(getNewsBreakClickId());
+  }, true);
+})();
 </script>
-<!-- NEWSBREAK INITIATE CHECKOUT ON BUYGOODS CLICK END -->
+<!-- NEWSBREAK INITIATE CHECKOUT POSTBACK ON BUYGOODS CLICK END -->
 
 </body></html>
