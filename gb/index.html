@@ -2109,4 +2109,18 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <!-- BUYGOODS + NEWSBREAK CROSS-DOMAIN TRACKING END -->
 
+<!-- NEWSBREAK INITIATE CHECKOUT ON BUYGOODS CLICK START -->
+<script id="newsbreak-initiate-checkout-buygoods">
+document.addEventListener('click', function (event) {
+  var link = event.target.closest('a[href*="buygoods.com/secure/checkout.html"]');
+  if (!link) return;
+
+  if (typeof window.nbpix === 'function') {
+    window.nbpix("init", "2096363349126983682");
+    window.nbpix("event", "initiate_checkout");
+  }
+}, true);
+</script>
+<!-- NEWSBREAK INITIATE CHECKOUT ON BUYGOODS CLICK END -->
+
 </body></html>
