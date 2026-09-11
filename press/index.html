@@ -32,7 +32,6 @@
       data-utmify-prevent-xcod-sck
       data-utmify-prevent-subids
       data-utmify-ignore-iframe
-      data-utmify-is-cartpanda
       async
       defer
     ></script>
@@ -1040,17 +1039,52 @@
     <!-- NEWSBREAK PARAMETER PASS-THROUGH TO VSL START -->
     <script>
     (function () {
+        var VSL_HOST = 'gb.dailyhealthtotal.com';
+        var VSL_PATH = '/gb/';
+        var NB_STORAGE_KEY = 'newsbreak_cid';
+
+        function getIncomingParams() {
+            return new URLSearchParams(window.location.search);
+        }
+
+        function getNewsBreakClickId(params) {
+            // Official/recommended key used in the NewsBreak landing-page URL.
+            var cid = params.get('newsbreak_cid');
+
+            // Fallbacks in case an older campaign/link used another key.
+            if (!cid) cid = params.get('nb_cid');
+            if (!cid) cid = params.get('nbcid');
+            if (!cid) cid = params.get('callback');
+
+            // Never store the unresolved macro itself.
+            if (cid && cid !== '__CALLBACK_PARAM__') {
+                try { localStorage.setItem(NB_STORAGE_KEY, cid); } catch (e) {}
+                return cid;
+            }
+
+            try {
+                var stored = localStorage.getItem(NB_STORAGE_KEY);
+                if (stored) return stored;
+            } catch (e) {}
+
+            return '';
+        }
+
         function decorateVslLinks() {
-            var incomingParams = new URLSearchParams(window.location.search);
+            var incomingParams = getIncomingParams();
+            var newsbreakCid = getNewsBreakClickId(incomingParams);
+
+            // Normalize the NewsBreak click ID to one key for the next step of the funnel.
+            if (newsbreakCid) {
+                incomingParams.set('newsbreak_cid', newsbreakCid);
+            }
 
             document.querySelectorAll('a[href]').forEach(function (link) {
                 try {
                     var url = new URL(link.getAttribute('href'), window.location.href);
+                    var normalizedPath = url.pathname.endsWith('/') ? url.pathname : url.pathname + '/';
 
-                    if (
-                        url.hostname === 'gb.dailyhealthtotal.com' &&
-                        (url.pathname === '/gb' || url.pathname === '/gb/')
-                    ) {
+                    if (url.hostname === VSL_HOST && normalizedPath === VSL_PATH) {
                         incomingParams.forEach(function (value, key) {
                             url.searchParams.set(key, value);
                         });
