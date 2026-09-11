@@ -122,6 +122,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       data-utmify-prevent-xcod-sck
       data-utmify-prevent-subids
       data-utmify-ignore-iframe
+      data-utmify-is-cartpanda
       async
       defer
     ></script>
@@ -407,7 +408,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <svg fill="#000" height="10" viewbox="0 0 24 16" width="16" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="8" fill="#000" rx="12" ry="8"></ellipse><circle cx="12" cy="8" fill="#fff" r="4"></circle><circle cx="12" cy="8" fill="#000" r="2"></circle></svg>
     Special Report | By Dr. W. Li
   </a>
-<div style="font-size:11px;color:#999;margin-top:5px;">09/03/26 at 4:00 PM | Updated 09/03/26 at 4:32 PM</div>
+<div id="article-date-line" style="font-size:11px;color:#999;margin-top:5px;">Loading date...</div>
 </div> </div>
 </div>
 <div class="elementor-element elementor-element-75b22432 e-con e-atomic-element e-flexbox-base e-75b22432-9e36378" data-e-type="e-flexbox" data-element_type="e-flexbox" data-id="75b22432" data-interaction-id="75b22432">
@@ -417,7 +418,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="elementor-element elementor-element-4f01af54 e-con e-atomic-element e-flexbox-base e-4f01af54-b27808e" data-e-type="e-flexbox" data-element_type="e-flexbox" data-id="4f01af54" data-interaction-id="4f01af54">
 <div class="elementor-element elementor-element-5d6f4444 elementor-widget elementor-widget-html" data-e-type="widget" data-element_type="widget" data-id="5d6f4444" data-widget_type="html.default">
 <!-- 🔴 LIVE VIEWERS COUNTER — VTURB SAFE -->
-<div aria-label="Current viewers" data-initialized="true" id="bpw-live-viewers">
+<div aria-label="Current viewers" id="bpw-live-viewers">
 <div class="bpw-live-box">
 <div class="bpw-live-badge">
 <span aria-hidden="true" class="bpw-live-dot"></span>
@@ -665,109 +666,65 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     }
   </style>
 <script>
-    (function () {
-      "use strict";
+(function () {
+  "use strict";
 
-      const root = document.getElementById("bpw-live-viewers");
+  const root = document.getElementById("bpw-live-viewers");
+  if (!root || root.dataset.initialized === "true") return;
 
-      if (!root || root.dataset.initialized === "true") {
-        return;
-      }
+  root.dataset.initialized = "true";
 
-      root.dataset.initialized = "true";
+  const counter = root.querySelector(".bpw-live-count");
+  if (!counter) return;
 
-      const counter = root.querySelector(".bpw-live-count");
+  let viewers = 1553;
+  const maximumViewers = 1820;
+  let timer = null;
 
-      if (!counter) {
-        return;
-      }
+  function formatNumber(number) {
+    return number.toLocaleString("en-US");
+  }
 
-      let viewers = 1553;
+  function getNextIncrease() {
+    return Math.floor(Math.random() * 4) + 1; // +1 a +4
+  }
 
-      const minimumViewers = 1480;
-      const maximumViewers = 1620;
+  function getNextDelay() {
+    return Math.floor(Math.random() * 3500) + 4500; // 4,5 a 8 s
+  }
 
-      let timer = null;
-
-      function formatNumber(number) {
-        return number.toLocaleString("en-US");
-      }
-
-      function generateChange() {
-        /*
-         * Gera uma variação entre -7 e +9.
-         */
-        return Math.floor(Math.random() * 17) - 7;
-      }
-
-      function keepInsideRange(number) {
-        if (number < minimumViewers) {
-          return minimumViewers +
-            Math.floor(Math.random() * 15);
-        }
-
-        if (number > maximumViewers) {
-          return maximumViewers -
-            Math.floor(Math.random() * 15);
-        }
-
-        return number;
-      }
-
-      function getNextDelay() {
-        /*
-         * Próxima alteração entre 3 e 7 segundos.
-         */
-        return Math.floor(Math.random() * 4000) + 3000;
-      }
-
-      function updateViewers() {
-        viewers += generateChange();
-        viewers = keepInsideRange(viewers);
-
-        counter.textContent = formatNumber(viewers);
-
-        timer = window.setTimeout(
-          updateViewers,
-          getNextDelay()
-        );
-      }
-
-      /*
-       * Para o contador quando a aba não está visível
-       * e retoma quando o visitante volta.
-       */
-      function handleVisibilityChange() {
-        if (document.hidden) {
-          if (timer) {
-            window.clearTimeout(timer);
-            timer = null;
-          }
-
-          return;
-        }
-
-        if (!timer) {
-          timer = window.setTimeout(
-            updateViewers,
-            getNextDelay()
-          );
-        }
-      }
-
+  function updateViewers() {
+    if (viewers >= maximumViewers) {
+      viewers = maximumViewers;
       counter.textContent = formatNumber(viewers);
+      timer = null;
+      return;
+    }
 
-      timer = window.setTimeout(
-        updateViewers,
-        3000
-      );
+    viewers = Math.min(maximumViewers, viewers + getNextIncrease());
+    counter.textContent = formatNumber(viewers);
+    timer = window.setTimeout(updateViewers, getNextDelay());
+  }
 
-      document.addEventListener(
-        "visibilitychange",
-        handleVisibilityChange
-      );
-    })();
-  </script>
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      if (timer) {
+        window.clearTimeout(timer);
+        timer = null;
+      }
+      return;
+    }
+
+    if (!timer && viewers < maximumViewers) {
+      timer = window.setTimeout(updateViewers, getNextDelay());
+    }
+  }
+
+  counter.textContent = formatNumber(viewers);
+  timer = window.setTimeout(updateViewers, getNextDelay());
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+})();
+</script>
 </div> </div>
 </div>
 <div class="elementor-element elementor-element-c788818 e-con e-atomic-element e-flexbox-base e-acf0cb0" data-e-type="e-flexbox" data-element_type="e-flexbox" data-id="c788818" data-interaction-id="c788818">
@@ -2027,4 +1984,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { once: true });
 });
 </script>
+
+<script id="dynamic-article-date">
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("article-date-line");
+  if (!el) return;
+
+  var now = new Date();
+  var mm = String(now.getMonth() + 1).padStart(2, "0");
+  var dd = String(now.getDate()).padStart(2, "0");
+  var yy = String(now.getFullYear()).slice(-2);
+
+  el.textContent = mm + "/" + dd + "/" + yy + " at 7:00 AM";
+});
+</script>
+
 </body></html>
