@@ -408,7 +408,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <svg fill="#000" height="10" viewbox="0 0 24 16" width="16" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="8" fill="#000" rx="12" ry="8"></ellipse><circle cx="12" cy="8" fill="#fff" r="4"></circle><circle cx="12" cy="8" fill="#000" r="2"></circle></svg>
     Special Report | By Dr. W. Li
   </a>
-<div style="font-size:11px;color:#999;margin-top:5px;">09/03/26 at 4:00 PM | Updated 09/03/26 at 4:32 PM</div>
+<div id="article-date-line" style="font-size:11px;color:#999;margin-top:5px;"></div>
+<script>
+(function () {
+  const now = new Date();
+
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  const yy = String(now.getFullYear()).slice(-2);
+  const today = `${mm}/${dd}/${yy}`;
+
+  const el = document.getElementById('article-date-line');
+  if (el) {
+    el.textContent = `${today} at 7:18 AM | Updated ${today} at 7:32 AM`;
+  }
+})();
+</script>
 </div> </div>
 </div>
 <div class="elementor-element elementor-element-75b22432 e-con e-atomic-element e-flexbox-base e-75b22432-9e36378" data-e-type="e-flexbox" data-element_type="e-flexbox" data-id="75b22432" data-interaction-id="75b22432">
