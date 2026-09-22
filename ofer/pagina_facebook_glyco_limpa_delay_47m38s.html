@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Facebook</title>
+<link href="images/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link crossorigin="anonymous" href="css/bootstrap-icons.min.css" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="css/fbcomments.css" rel="stylesheet" type="text/css"/>
+<link href="css/vsl.css" rel="stylesheet" type="text/css"/>
+<link href="css/facebook.css" rel="stylesheet" type="text/css"/>
+<link href="css/all.min.css" rel="stylesheet"/>
+<link href="css/bottles.css" rel="stylesheet" type="text/css"/>
+
+
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+
+
+
+<link href="https://cdn.converteai.net" rel="dns-prefetch"/>
+<link href="https://scripts.converteai.net" rel="dns-prefetch"/>
+<link href="https://images.converteai.net" rel="dns-prefetch"/>
+<link href="https://license.vturb.com" rel="dns-prefetch"/>
+
+
+<style>
+.esconder,
+.after-quiz {
+	display: none;
+}
+html,
+body {
+	overflow-x: hidden;
+}
+</style>
+
+<style>
+/* ===== FB-NATIVE REDESIGN v2 ===== */
+
+/* FB font stack (custom.css uses `*` so it must be re-applied per element) */
+.fb-topbar, .fb-topbar *, .fb-profile, .fb-profile *, .fb-header, .fb-header *, .fb-footer, .fb-footer *, #fb-comments, #fb-comments * {
+	font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif !important;
+}
+.fb-topbar i, .fb-profile i, .fb-header i, .fb-footer i, #fb-comments i,
+.fa, .fas, .far, .fa-solid, .fa-regular { font-family: "Font Awesome 6 Free" !important; }
+i.fab, i.fa-brands, .fb-topbar i.fa-brands { font-family: "Font Awesome 6 Brands" !important; }
+.fb-profile-name { letter-spacing: -.2px; }
+
+/* Post header */
+.fb-header { align-items: center !important; padding: 12px 16px 10px !important; }
+.fb-user-left { align-items: center !important; gap: 10px; }
+.fb-avatar { margin: 0 !important; }
+.fb-user-info { display: flex; flex-direction: column; gap: 3px; line-height: 1.25 !important; }
+.fb-name-row { gap: 4px !important; align-items: center !important; }
+.fb-name { font-size: 15px !important; font-weight: 600 !important; color: #050505; }
+.fb-verified { font-size: 13px !important; margin-left: 1px; }
+.fb-follow { font-size: 15px !important; margin-left: 2px; }
+.fb-date { font-size: 13px !important; display: flex; align-items: center; gap: 4px; }
+.fb-date i { font-size: 12px; }
+.fb-actions { gap: 20px !important; font-size: 20px !important; }
+
+/* Integrated comments (FB feed bubble style) */
+.fb-post-bottom { padding-bottom: 8px; }
+.fb-post-bottom #fb-comments { padding: 4px 16px 0 !important; font-size: 13px !important; }
+.fb-post-bottom #fb-comments .comments-container { border: none !important; border-radius: 0 !important; padding: 10px 0 0 !important; gap: 12px !important; }
+.fb-post-bottom #fb-comments .comment { gap: 8px !important; }
+.fb-post-bottom #fb-comments .comment .user-avatar { width: 32px !important; height: 32px !important; border-radius: 50% !important; }
+.fb-post-bottom #fb-comments .comment.answer { margin-left: 40px !important; max-width: calc(100% - 40px) !important; margin-bottom: 0 !important; }
+.fb-post-bottom #fb-comments .comment.answer .user-avatar { width: 24px !important; height: 24px !important; }
+.fb-post-bottom #fb-comments .comment .comment-data .user { display: inline-block; max-width: 100%; background: #f0f2f5 !important; padding: 8px 12px !important; border-radius: 18px !important; }
+.fb-post-bottom #fb-comments .comment .comment-data .user .name { color: #050505 !important; font-size: 13px !important; font-weight: 600 !important; line-height: 1.3; margin-bottom: 1px; }
+.fb-post-bottom #fb-comments .comment .comment-data .user .text { font-size: 15px !important; line-height: 1.35 !important; color: #050505 !important; }
+.fb-post-bottom #fb-comments .comment .comment-data .buttons { margin: 5px 0 0 12px !important; gap: 14px !important; align-items: center !important; }
+.fb-post-bottom #fb-comments .comment .comment-data .buttons time { font-size: 12px !important; color: #65676b !important; font-weight: 400 !important; }
+.fb-post-bottom #fb-comments .comment .comment-data .buttons like,
+.fb-post-bottom #fb-comments .comment .comment-data .buttons answer { font-size: 12px !important; color: #65676b !important; font-weight: 700 !important; }
+.fb-post-bottom #fb-comments .comment likes { bottom: -2px !important; right: 4px !important; font-size: 13px !important; color: #65676b !important; border: none !important; background: transparent !important; padding: 0 !important; gap: 3px; }
+.fb-post-bottom #fb-comments .comment likes::before { content: none !important; }
+.fb-post-bottom #fb-comments .comment likes::after { content: url("images/likes.webp"); display: inline-block; line-height: 0; transform: translateY(1px); }
+.fb-post-bottom #fb-comments .comments-closed { text-align: left !important; font-weight: 400 !important; font-size: 13px !important; color: #8a8d91 !important; margin: 8px 0 8px !important; }
+@media (min-width: 576px) { .fb-post-bottom #fb-comments { font-size: 13px !important; } }
+
+/* Profile bar (no cover photo) */
+/* Video: no black letterbox on desktop */
+@media (min-width: 769px) {
+	.fb-video { background: #fff !important; padding: 0 0 2px; }
+	.fb-video vturb-smartplayer { max-width: 520px !important; margin: 0 auto !important; }
+	/* rounded post card like FB desktop (split card: top corners on the video card, bottom corners on the reactions/comments card) */
+	.fb-page:not(.fb-profile-wrap) .fb-post { border-radius: 8px 8px 0 0; box-shadow: 0 1px 2px rgba(0,0,0,.2); overflow: hidden; }
+	.fb-page:not(.fb-profile-wrap) .fb-post.fb-post-bottom { border-radius: 0 0 8px 8px; }
+	.fb-profile-wrap + .fb-page { padding-top: 4px; padding-bottom: 0 !important; margin-bottom: 0 !important; }
+	.fb-page-bottom { padding-top: 0 !important; margin-top: 0 !important; }
+}
+.fb-profile-wrap { background: #fff; border-bottom: 1px solid #e4e6eb; margin-bottom: 12px; }
+.fb-profile { width: 100%; max-width: 680px; background: #fff; padding: 24px 16px 0; font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif; }
+@media (min-width: 1200px) { .fb-profile { max-width: 760px; padding-left: 26px; padding-right: 26px; } }
+.fb-profile-top { display: flex; align-items: center; gap: 18px; }
+.fb-profile-avatar { width: 112px; height: 112px; border-radius: 50%; padding: 3px; background: #fff; border: 3px solid #1877f2; flex-shrink: 0; box-sizing: border-box; }
+.fb-profile-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.fb-profile-info { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.fb-profile-name { font-size: 24px; font-weight: 700; color: #050505; display: flex; align-items: center; gap: 7px; line-height: 1.2; }
+.fb-profile-name i { color: #1877f2; font-size: 18px; }
+.fb-profile-stats { font-size: 15px; color: #65676b; }
+.fb-profile-stats b { font-weight: 600; color: #65676b; }
+.fb-profile-link { font-size: 14px; color: #1877f2; font-weight: 600; }
+.fb-profile-bio { font-size: 15px; color: #050505; }
+.fb-profile-type { font-size: 14px; color: #65676b; display: flex; align-items: center; gap: 6px; }
+.fb-profile-type i { font-size: 12px; }
+.fb-profile-tabs { display: flex; align-items: center; gap: 2px; margin-top: 18px; border-top: 1px solid #e4e6eb; padding-top: 2px; overflow-x: auto; scrollbar-width: none; }
+.fb-profile-tabs::-webkit-scrollbar { display: none; }
+.fb-tab { padding: 14px 14px; font-size: 15px; font-weight: 600; color: #65676b; white-space: nowrap; position: relative; display: flex; align-items: center; gap: 5px; }
+.fb-tab.active { color: #1877f2; }
+.fb-tab.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #1877f2; border-radius: 2px 2px 0 0; }
+.fb-tab-more { margin-left: auto; width: 36px; height: 36px; border-radius: 6px; background: #e4e6eb; display: flex; align-items: center; justify-content: center; color: #050505; flex-shrink: 0; }
+@media (max-width: 767px) {
+	.fb-profile { padding: 18px 12px 0; }
+	.fb-profile-top { flex-wrap: wrap; gap: 14px; }
+	.fb-profile-avatar { width: 92px; height: 92px; }
+	.fb-profile-name { font-size: 20px; }
+	.fb-profile-name i { font-size: 16px; }
+	.fb-profile-stats { font-size: 14px; }
+	.fb-profile-tabs { margin-top: 12px; }
+	.fb-tab { padding: 12px 8px; font-size: 14px; }
+	.fb-tab:first-child { padding-left: 4px; }
+	.fb-tab-more { display: none; }
+}
+
+/* Offer section: reference styles (potespage vsl.css) */
+.after-quiz { background: #fff; }
+.after-quiz, .after-quiz * { font-family: "Nunito Sans", sans-serif; }
+.after-quiz .buy-button-label { font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; }
+
+</style>
+<script async="" data-utmify-prevent-xcod-sck="" defer="" src="https://cdn.utmify.com.br/scripts/utms/latest.js"></script><!-- Offer/VSL/tracking sanitized: Glyco Barrier source retained; foreign offer tracking removed. --></head>
+<body>
+<div class="fb-topbar">
+<div class="fb-topbar-inner">
+<div class="fb-topbar-left">
+<div class="fb-logo">
+<i class="fa-brands fa-facebook-f"></i>
+</div>
+<div class="fb-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input placeholder="Search Facebook" type="text"/>
+</div>
+</div>
+<div class="fb-topbar-center">
+<div class="fb-nav-item active">
+<i class="fa-solid fa-house"></i>
+</div>
+<div class="fb-nav-item">
+<i class="fa-solid fa-tv"></i>
+</div>
+<div class="fb-nav-item">
+<i class="fa-solid fa-store"></i>
+</div>
+<div class="fb-nav-item">
+<i class="fa-solid fa-user-group"></i>
+</div>
+</div>
+<div class="fb-topbar-right">
+<div class="fb-circle-btn">
+<i class="fa-solid fa-table-cells"></i>
+</div>
+<div class="fb-circle-btn">
+<i class="fa-brands fa-facebook-messenger"></i>
+</div>
+<div class="fb-circle-btn">
+<i class="fa-solid fa-bell"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="fb-page fb-profile-wrap">
+<div class="fb-profile">
+<div class="fb-profile-top">
+<div class="fb-profile-avatar"><img alt="CBS News" src="images/cbs.webp"/></div>
+<div class="fb-profile-info">
+<div class="fb-profile-name">CBS News <i class="fa-solid fa-circle-check"></i></div>
+<div class="fb-profile-stats"><b>12M followers</b> · <b>17 following</b></div>
+<span class="fb-profile-bio">Your source for original reporting and trusted news.</span>
+<div class="fb-profile-type"><i class="fa-solid fa-newspaper"></i> Media/news company</div>
+</div>
+</div>
+<div class="fb-profile-tabs">
+<div class="fb-tab active">All</div>
+<div class="fb-tab">About</div>
+<div class="fb-tab">Reels</div>
+<div class="fb-tab">Photos</div>
+<div class="fb-tab">Followers</div>
+<div class="fb-tab">More <i class="fa-solid fa-caret-down"></i></div>
+<div class="fb-tab-more"><i class="fa-solid fa-ellipsis"></i></div>
+</div>
+</div>
+</div>
+<div class="fb-page">
+<div class="fb-post">
+<div class="fb-header">
+<div class="fb-user-left">
+<img alt="CBS News" class="fb-avatar" src="images/cbs.webp"/>
+<div class="fb-user-info">
+<div class="fb-name-row">
+<span class="fb-name">CBS News</span>
+<i class="fa-solid fa-circle-check fb-verified"></i>
+</div>
+<div class="fb-date">
+<span id="fbDate">20 Sep at 13:19</span> ·
+							<i class="fa-solid fa-earth-americas"></i>
+</div>
+</div>
+</div>
+<div class="fb-actions">
+<i class="fa-solid fa-ellipsis"></i>
+<i class="fa-solid fa-xmark"></i>
+</div>
+</div>
+<div class="fb-video"><vturb-smartplayer id="vid-6ab1a5ece5bf9eb8a6b9331b" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 125% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer><script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/03ccc889-e246-4eff-a982-346fd4a664fd/players/6ab1a5ece5bf9eb8a6b9331b/v4/player.js", s.async=!0,document.head.appendChild(s);</script></div><script id="vturb-delay-47-38" type="text/javascript">(function(){
+  var delaySeconds = 2858; // 47:38 of actual VTurb playback
+  var player = document.querySelector("vturb-smartplayer");
+  var target = document.querySelector(".esconder");
+  if(!player || !target) return;
+
+  var scrolled = false;
+  var observer = new MutationObserver(function(){
+    if(scrolled) return;
+    try {
+      if(window.getComputedStyle(target).display !== "none"){
+        scrolled = true;
+        observer.disconnect();
+        var scrollTarget = document.getElementById("scrolldown") || target;
+        setTimeout(function(){
+          try { scrollTarget.scrollIntoView({behavior:"smooth", block:"start"}); }
+          catch(e) { scrollTarget.scrollIntoView(); }
+        },100);
+      }
+    } catch(e) {}
+  });
+  observer.observe(target,{attributes:true,attributeFilter:["style","class"]});
+
+  player.addEventListener("player:ready", function(){
+    player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true });
+  });
+})();</script>
+</div>
+</div>
+<div class="esconder py-4">
+<div class="bottles-section" id="scrolldown">
+<a class="bottle-card white-card smartplayer-click-event" data-fixed="true" data-offer="6" href="https://glyco-barrier.mycartpanda.com/checkout/211822021:1?afid=legBgPcLtR" title="6 BOTTLES">
+<div class="card-body">
+<div class="card-left">
+<div class="title">TOTAL REVERSAL KIT</div>
+<div class="count">6 BOTTLES</div>
+<div class="supply">180 DAY SUPPLY</div>
+<img alt="6 Glyco Barrier Bottles" decoding="async" loading="lazy" src="https://gb.dailyhealthtotal.com/ofer/images/JRaHLJ5526095.png"/>
+</div>
+<div class="card-right">
+<div class="price-row">
+<span class="dollar">$</span><span class="amount">49</span>
+</div>
+<div class="per-bottle-label">per bottle</div>
+<hr class="sep"/>
+<div class="benefit save"><i class="fa-solid fa-circle-check"></i> YOU SAVE $294!</div>
+<div class="benefit"><i class="fa-solid fa-circle-check"></i> BIGGEST DISCOUNT</div>
+<div class="benefit"><i class="fa-solid fa-circle-check"></i> 180 DAYS GUARANTEE</div>
+<hr class="sep"/>
+<div class="total-line">Total: <span class="old">$588</span> <span class="new">$294</span></div>
+<div class="shipping-line">+ <span class="hl">FREE</span> SHIPPING</div>
+</div>
+</div>
+<div class="buy-btn dark-red">
+<i class="fa-solid fa-cart-shopping"></i> BUY NOW
+				</div>
+</a>
+<a class="bottle-card white-card smartplayer-click-event" data-fixed="true" data-offer="3" href="https://glyco-barrier.mycartpanda.com/checkout/211822020:1?afid=legBgPcLtR" title="3 BOTTLES">
+<div class="card-body">
+<div class="card-left">
+<div class="title">Most Popular</div>
+<div class="count">3 BOTTLES</div>
+<div class="supply">90 DAY SUPPLY</div>
+<img alt="3 Glyco Barrier Bottles" decoding="async" loading="lazy" src="https://gb.dailyhealthtotal.com/ofer/images/jiNHEA5518930.png"/>
+</div>
+<div class="card-right">
+<div class="price-row">
+<span class="dollar">$</span><span class="amount">69</span>
+</div>
+<div class="per-bottle-label">per bottle</div>
+<hr class="sep"/>
+<div class="benefit save"><i class="fa-solid fa-circle-check"></i> YOU SAVE $98!</div>
+<div class="benefit"><i class="fa-solid fa-circle-check"></i> 90 DAYS GUARANTEE</div>
+<hr class="sep"/>
+<div class="total-line">Total: <span class="old">$294</span> <span class="new">$207</span></div>
+<div class="shipping-line">+ <span class="hl">FREE</span> SHIPPING</div>
+</div>
+</div>
+<div class="buy-btn gray">
+<i class="fa-solid fa-cart-shopping"></i> BUY NOW
+				</div>
+</a>
+<a class="bottle-card best-offer smartplayer-click-event" data-fixed="true" data-offer="2" href="https://glyco-barrier.mycartpanda.com/checkout/211822019:1?afid=legBgPcLtR" title="2 BOTTLES">
+<div class="banner">BEST VALUE!</div>
+<div class="card-body">
+<div class="card-left">
+<div class="count">2 BOTTLES</div>
+<div class="supply">60 DAY SUPPLY</div>
+<img alt="2 Glyco Barrier Bottles" decoding="async" loading="lazy" src="https://gb.dailyhealthtotal.com/ofer/images/bLmClL5533011.png"/>
+</div>
+<div class="card-right">
+<div class="price-row">
+<span class="dollar">$</span><span class="amount">79</span>
+</div>
+<div class="per-bottle-label">per bottle</div>
+<hr class="sep"/>
+<div class="benefit save"><i class="fa-solid fa-circle-check"></i> YOU SAVE $28!</div>
+<div class="benefit"><i class="fa-solid fa-circle-check"></i> 90 DAYS GUARANTEE</div>
+<hr class="sep"/>
+<div class="total-line">Total: <span class="old">$217</span> <span class="new">$158</span></div>
+<div class="shipping-line">+ $9.99 SHIPPING</div>
+</div>
+</div>
+<div class="buy-btn gold">
+<i class="fa-solid fa-cart-shopping"></i> BUY NOW
+				</div>
+</a>
+</div>
+</div>
+<div class="fb-page fb-page-bottom">
+<div class="fb-post fb-post-bottom">
+<div class="fb-footer">
+<div class="fb-footer-left">
+<div class="fb-action">
+<i class="fa-regular fa-thumbs-up"></i>
+<span>5.1K</span>
+</div>
+<div class="fb-action">
+<i class="fa-regular fa-comment"></i>
+<span>872</span>
+</div>
+<div class="fb-action">
+<i class="fa-solid fa-share"></i>
+<span>316</span>
+</div>
+</div>
+<div class="fb-footer-right">
+<div class="fb-mini-reactions">
+<div class="mini-like">
+<i class="fa-solid fa-thumbs-up"></i>
+</div>
+<div class="mini-love">
+<i class="fa-solid fa-heart"></i>
+</div>
+</div>
+</div>
+</div>
+<div id="fb-comments" style="display: block;">
+<div class="comments-container">
+<div class="comment" data-comment-id="1">
+<img alt="" class="user-avatar" src="images/151.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Sophie Robinson</p>
+<p class="text">Wait so what's the actual rosemary recipe? Do I need to watch the whole thing?</p>
+</div>
+<div class="buttons">
+<time>2h</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>21</likes>
+</div>
+<div class="comment answer" data-comment-id="1a">
+<img alt="" class="user-avatar" src="images/160.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Victoria Carter</p>
+<p class="text">yeah they break it down early on. Worth watching tbh</p>
+</div>
+<div class="buttons">
+<time>1h</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>18</likes>
+</div>
+<div class="comment" data-comment-id="2">
+<img alt="" class="user-avatar" src="images/162.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Lisa G.</p>
+<p class="text">Ngl I only watched cause it was CBS but the rosemary thing actually makes sense when they break down the science. Def gonna try it with my mom</p>
+</div>
+<div class="buttons">
+<time>1h</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>46</likes>
+</div>
+<div class="comment" data-comment-id="3">
+<img alt="" class="user-avatar" src="images/164.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Madison Scott</p>
+<p class="text">3 weeks in and I stopped losing my keys every single morning lol. never thought I'd say rosemary did that</p>
+</div>
+<div class="buttons">
+<time>55 min</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>63</likes>
+</div>
+<div class="comment" data-comment-id="4">
+<img alt="" class="user-avatar" src="images/169.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Charlotte Williams</p>
+<p class="text">Ok I almost scrolled past this but I'm glad I didn't. Started the rosemary routine 2 weeks ago and the fog I used to wake up with is basically gone. Not saying it's magic but something is definitely working</p>
+</div>
+<div class="buttons">
+<time>40 min</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>58</likes>
+</div>
+<div class="comment" data-comment-id="5">
+<img alt="" class="user-avatar" src="images/115.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Daisy Collins</p>
+<p class="text">Is this actually legit or just another internet thing??</p>
+</div>
+<div class="buttons">
+<time>32 min</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>14</likes>
+</div>
+<div class="comment answer" data-comment-id="5a">
+<img alt="" class="user-avatar" src="images/095.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Emily Lewis</p>
+<p class="text">I literally said the same thing lol. Try it for a week and see. The word-finding thing got better first and now I actually remember names at church again</p>
+</div>
+<div class="buttons">
+<time>28 min</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>35</likes>
+</div>
+<div class="comment" data-comment-id="6">
+<img alt="" class="user-avatar" src="images/051.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Olivia Martinez</p>
+<p class="text">I've done the brain apps, fish oil, ginkgo... this is the first time I actually feel a difference. The fog just kinda lifted? Idk how to explain</p>
+</div>
+<div class="buttons">
+<time>20 min</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>49</likes>
+</div>
+<div class="comment" data-comment-id="7">
+<img alt="" class="user-avatar" src="images/013.webp"/>
+<div class="comment-data">
+<div class="user">
+<p class="name">Emma Clark</p>
+<p class="text">2 months in. my dad is reading his paper again and following the whole plot on his shows. i'm honestly confused how this isn't bigger news</p>
+</div>
+<div class="buttons">
+<time>just now</time>
+<like>Like</like>
+<answer>Reply</answer>
+</div>
+</div>
+<likes>72</likes>
+</div>
+<h4 class="comments-closed">This post is no longer receiving comments.</h4>
+</div>
+</div>
+</div>
+</div>
+<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+
+<script>
+		setInterval(function () {
+			var esconderDiv = document.querySelector('.esconder');
+			var fbComments = document.querySelector('#fb-comments');
+			if (esconderDiv && fbComments) {
+				if (window.getComputedStyle(esconderDiv).display !== 'none') {
+					fbComments.style.display = 'none';
+				}
+			}
+		}, 500);
+	</script>
+
+<script>
+		(function () {
+			const now = new Date();
+
+			const shortMonths = [
+				"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+				"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+			];
+
+			const fbDateElement = document.getElementById("fbDate");
+
+			if (fbDateElement) {
+				const fbDate = new Date();
+				fbDate.setDate(fbDate.getDate() - 2);
+
+				const fbDay = fbDate.getDate();
+				const fbMonth = shortMonths[fbDate.getMonth()];
+
+				const hours = String(fbDate.getHours()).padStart(2, '0');
+				const minutes = String(fbDate.getMinutes()).padStart(2, '0');
+
+				fbDateElement.textContent =
+					fbDay + ' ' + fbMonth + ' at ' + hours + ':' + minutes;
+			}
+		})();
+	</script>
+</body></html>
