@@ -219,33 +219,48 @@ i.fab, i.fa-brands, .fb-topbar i.fa-brands { font-family: "Font Awesome 6 Brands
 <i class="fa-solid fa-xmark"></i>
 </div>
 </div>
-<div class="fb-video"><vturb-smartplayer id="vid-6ab1a5ece5bf9eb8a6b9331b" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 125% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer><script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/03ccc889-e246-4eff-a982-346fd4a664fd/players/6ab1a5ece5bf9eb8a6b9331b/v4/player.js", s.async=!0,document.head.appendChild(s);</script></div><script id="vturb-delay-47-38" type="text/javascript">(function(){
-  var delaySeconds = 2858; // 47:38 of actual VTurb playback
-  var player = document.querySelector("vturb-smartplayer");
-  var target = document.querySelector(".esconder");
-  if(!player || !target) return;
+<div class="fb-video"><vturb-smartplayer id="vid-6ab1a5ece5bf9eb8a6b9331b" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 125% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer><script type="text/javascript">var s=document.createElement("script"); s.src="https://scripts.converteai.net/03ccc889-e246-4eff-a982-346fd4a664fd/players/6ab1a5ece5bf9eb8a6b9331b/v4/player.js", s.async=!0,document.head.appendChild(s);</script></div><script id="vturb-delay-47-38" type="text/javascript">
+(function () {
+  var delaySeconds = 2858; // 47:38
+  var initialized = false;
+  var playerElement = document.querySelector("vturb-smartplayer");
 
-  var scrolled = false;
-  var observer = new MutationObserver(function(){
-    if(scrolled) return;
-    try {
-      if(window.getComputedStyle(target).display !== "none"){
-        scrolled = true;
-        observer.disconnect();
-        var scrollTarget = document.getElementById("scrolldown") || target;
-        setTimeout(function(){
-          try { scrollTarget.scrollIntoView({behavior:"smooth", block:"start"}); }
-          catch(e) { scrollTarget.scrollIntoView(); }
-        },100);
+  function configureDelay(player) {
+    if (initialized || !player || typeof player.displayHiddenElements !== "function") return;
+    initialized = true;
+
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true,
+      display: "block",
+      callback: function () {
+        var target = document.getElementById("scrolldown") || document.querySelector(".esconder");
+        if (target) {
+          setTimeout(function () {
+            try {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            } catch (e) {
+              target.scrollIntoView();
+            }
+          }, 100);
+        }
       }
-    } catch(e) {}
-  });
-  observer.observe(target,{attributes:true,attributeFilter:["style","class"]});
+    });
+  }
 
-  player.addEventListener("player:ready", function(){
-    player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true });
-  });
-})();</script>
+  // Listener direto no SmartPlayer (padrão oficial da VTurb)
+  if (playerElement) {
+    playerElement.addEventListener("player:ready", function (event) {
+      configureDelay((event.detail && event.detail.player) || playerElement);
+    }, { once: true });
+  }
+
+  // Fallback para páginas/embeds em que o evento é capturado no document
+  document.addEventListener("player:ready", function (event) {
+    var detail = event.detail || {};
+    configureDelay(detail.player || playerElement);
+  }, { once: true });
+})();
+</script>
 </div>
 </div>
 <div class="esconder py-4">
